@@ -1,0 +1,44 @@
+plugins {
+    id 'io.spring.dependency-management'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.plugin.spring'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencyManagement {
+    repositories {
+        mavenCentral()
+    }
+    imports {
+        mavenBom 'io.cucumber:cucumber-bom:7.9.0'
+        mavenBom 'org.springframework.boot:spring-boot-dependencies:3.0.0'
+    }
+    dependencies {
+        dependency 'com.github.tomakehurst:wiremock-jre8-standalone:2.35.0'
+    }
+}
+
+dependencies {
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = '17'
+            freeCompilerArgs = ['-Xjsr305=strict']
+        }
+    }
+}

@@ -1,57 +1,12 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id 'io.spring.dependency-management' version '1.1.0'
     id 'org.jetbrains.kotlin.jvm' version '1.7.22'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.7.22'
 }
 
-group = 'io.fries.proxito'
-version = '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
 
-subprojects {
-    apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'org.jetbrains.kotlin.jvm'
-    apply plugin: 'org.jetbrains.kotlin.plugin.spring'
+group = 'io.fries.proxito'
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
-    }
-
-    dependencyManagement {
-        repositories {
-            mavenCentral()
-        }
-        imports {
-            mavenBom 'io.cucumber:cucumber-bom:7.9.0'
-            mavenBom 'org.springframework.boot:spring-boot-dependencies:3.0.0'
-        }
-        dependencies {
-            dependency 'com.github.tomakehurst:wiremock-jre8-standalone:2.35.0'
-        }
-    }
-
-    dependencies {
-        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-
-        implementation 'org.jetbrains.kotlin:kotlin-reflect'
-        implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    }
-
-    tasks.test {
-        useJUnitPlatform()
-    }
-
-    tasks.withType(KotlinCompile) {
-        kotlinOptions {
-            freeCompilerArgs = ['-Xjsr305=strict']
-            jvmTarget = '17'
-        }
-    }
-}
