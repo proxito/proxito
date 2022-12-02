@@ -1,3 +1,7 @@
+plugins {
+    id 'io.fries.proxito.conventions.kotlin'
+}
+
 dependencies {
     implementation project(':proxito-core')
     implementation 'org.springframework.boot:spring-boot-starter-test'

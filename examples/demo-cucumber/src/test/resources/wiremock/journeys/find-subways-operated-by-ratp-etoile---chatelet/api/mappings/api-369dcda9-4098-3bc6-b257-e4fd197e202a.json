@@ -1,0 +1,24 @@
+{
+  "id" : "369dcda9-4098-3bc6-b257-e4fd197e202a",
+  "name" : "api",
+  "request" : {
+    "url" : "/journeys?origin=2.35562%3B48.83133&destination=2.34833%3B48.85811&departureDateTime=2022-12-02T10%3A00%2B01%3A00%5BEurope%2FParis%5D",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "api-369dcda9-4098-3bc6-b257-e4fd197e202a.json",
+    "headers" : {
+      "Date" : "Fri, 02 Dec 2022 20:59:55 GMT",
+      "Server" : "Apache/2.4.10 (Debian)",
+      "navitia-request-id" : "3e609d68-a703-4e37-a835-7a1f2fe20288",
+      "Access-Control-Allow-Origin" : "*",
+      "Vary" : [ "Accept-Encoding", "User-Agent" ],
+      "Content-Type" : "application/json",
+      "Connection" : "close"
+    }
+  },
+  "uuid" : "369dcda9-4098-3bc6-b257-e4fd197e202a",
+  "persistent" : true,
+  "insertionIndex" : 1
+}

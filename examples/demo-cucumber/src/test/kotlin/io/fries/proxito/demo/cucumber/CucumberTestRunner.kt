@@ -8,6 +8,6 @@ import org.junit.runner.RunWith
 @CucumberOptions(
     glue = ["io.fries.proxito.demo.cucumber.glue"],
     features = ["src/test/resources/features"],
-    plugin = ["pretty", "html:target/cucumber/cucumber.html", "json:target/cucumber/cucumber.json"]
+    plugin = ["pretty", "html:build/cucumber/cucumber.html", "json:build/cucumber/cucumber.json"]
 )
 class CucumberTestRunner

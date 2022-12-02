@@ -1,0 +1,24 @@
+{
+  "id" : "e81e16bb-5c45-3f0b-b39c-4edda230ee9b",
+  "name" : "navitia",
+  "request" : {
+    "urlPattern" : "/journeys\\?from=2.35562;48.83133&to=2.34833;48.85811&datetime=\\d{8}T100000&datetime_represents=departure",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "navitia-e81e16bb-5c45-3f0b-b39c-4edda230ee9b.json",
+    "headers" : {
+      "Date" : "Fri, 02 Dec 2022 20:59:55 GMT",
+      "Content-Type" : "application/json",
+      "Server" : "Apache/2.4.10 (Debian)",
+      "navitia-request-id" : "3e609d68-a703-4e37-a835-7a1f2fe20288",
+      "Access-Control-Allow-Origin" : "*",
+      "Vary" : "Accept-Encoding",
+      "Connection" : "close"
+    }
+  },
+  "uuid" : "e81e16bb-5c45-3f0b-b39c-4edda230ee9b",
+  "persistent" : true,
+  "insertionIndex" : 1
+}
