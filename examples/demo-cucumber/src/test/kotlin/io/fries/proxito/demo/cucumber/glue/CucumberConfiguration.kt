@@ -14,11 +14,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
 import org.springframework.context.annotation.ComponentScan
+import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest(
     classes = [DemoApi::class],
     webEnvironment = WebEnvironment.DEFINED_PORT
 )
+@ActiveProfiles(profiles = ["mock", "replay"])
 @ComponentScan
 @AutoConfigureMockMvc
 @CucumberContextConfiguration
