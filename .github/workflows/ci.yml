@@ -15,4 +15,10 @@ jobs:
       - name: Test & Build
         uses: gradle/gradle-build-action@v2.3.3
         with:
-          arguments: --no-daemon build
+          arguments: build
+      - name: Publish test reports
+        uses: actions/upload-artifact@v3.1.1
+        if: always()
+        with:
+          name: Test results
+          path: '**/build/test-results/test/TEST-*.xml'
