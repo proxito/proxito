@@ -1,8 +1,10 @@
 name: Continuous Integration
-on: [pull_request]
+on: [ pull_request ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DEMO_NAVITIA_TOKEN: ${{ secrets.DEMO_NAVITIA_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
