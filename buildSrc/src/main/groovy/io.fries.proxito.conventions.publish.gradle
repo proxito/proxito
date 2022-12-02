@@ -1,0 +1,48 @@
+plugins {
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            version = publishVersion()
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/proxito/proxito"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+def publishVersion() {
+    def commitId = commitId()
+    def gitTag = gitTag(commitId)
+
+    return gitTag ?: commitId
+}
+
+def commitId() {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', '--short', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().replace("\n", "").replace("\r", "").trim()
+}
+
+def gitTag(commitId) {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'tag', '--points-at', commitId
+        standardOutput = stdout
+    }
+    return stdout.toString().replace("\n", "").replace("\r", "").trim()
+}
